@@ -1,0 +1,1 @@
+SELECT Name, count(*) FROM Users WHERE Name LIKE 'A%' GROUP BY Name HAVING Count(*)>1

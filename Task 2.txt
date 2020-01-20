@@ -1,0 +1,6 @@
+int i = 1;
+object obj = i;
+++i;
+Console.WriteLine(i); 1
+Console.WriteLine(obj); 1
+Console.WriteLine((short)obj); - InvalidCastException, т.к. int и short пне соотносятся

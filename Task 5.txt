@@ -1,0 +1,23 @@
+Функция
+
+CREATE FUNCTION ConcatItems(@GroupId INT)
+   RETURNS NVARCHAR(100)
+AS
+BEGIN
+    DECLARE @ItemList varchar(8000)
+    SET @ItemList = ''
+
+    SELECT @ItemList = @ItemList + ',' + descr
+    FROM Groups
+    WHERE group_id = @GroupId
+
+    RETURN SUBSTRING(@ItemList, 2, 100)
+END
+
+GO
+
+
+Запрос
+
+SELECT group_id, dbo.ConcatItems(group_id) ItemList
+FROM Groups GROUP BY group_id

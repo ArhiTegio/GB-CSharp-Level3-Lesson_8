@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Refact
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            WriteLine("Здраствуйте, вас приветствует математическая программа.");
+            WriteLine("Для получения факториала пожалуйста введите число:");	    
+            var q =int.Parse(ReadLine());
+            WriteLine($"Факториал числа {q} равет: {q.Factorial()}");    
+        }
+    }
+
+    public static class Int32Ext
+    {
+        public static int Factorial(this int step) => step == 0 ? 1 : Enumerable.Range(1, step).Aggregate((i, j) => i * j);
+    }
+}
